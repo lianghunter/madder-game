@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerJoins = new PlayerJoin[0];
+        Debug.Log("Roasdfasdfdfdfd");
+        
     }
 
     void Update()
