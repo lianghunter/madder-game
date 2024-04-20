@@ -159,6 +159,7 @@ public class GameManager : MonoBehaviour
         }
         newPlayerJoins[playerJoins.Length] = playerJoin;
         playerJoins = newPlayerJoins;
+        // * may be useful to make playerjoins a vector/arraylist
 
         // Add game played to player stats
         playerJoin.stats.addGamePlayed();
