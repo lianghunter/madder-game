@@ -8,6 +8,23 @@ public class GameManager : MonoBehaviour
     public Canvas canvas;
     public GameObject nameObject;
     private PlayerJoin[] playerJoins;
+    public string[] phaseNames = new string[7] 
+    {"StartScene", "InstructScene", "WordChooseScene", "PitchScene", "VotingScene", "LeaderBoardScene", "EndGameScene"};
+
+    public enum Scenes
+    {
+        start,
+        instruct,
+        choose,
+        pitch,
+        vote,
+        board,
+        end
+    }
+
+    public Scenes scenes = Scenes.start;
+
+    public SceneChanger sceneChanger = new SceneChanger();
 
     // Madder functions that you may call
     // These functions should be conditionally called based on if this is inside a WebGL build, not the editor
@@ -23,12 +40,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerJoins = new PlayerJoin[0];
-        Debug.Log("Roasdfasdfdfdfd");
-        
+        sceneChanger.LoadScene(phaseNames[0]);
     }
 
     void Update()
     {
+
+
         // Testing Madder functions
         // TODO: This code should be commented out or removed before submission
 
@@ -236,6 +254,51 @@ public class GameManager : MonoBehaviour
                 child.GetComponent<NameScript>().UpdateXY(controllerState.joystick.x, controllerState.joystick.y);
             }
         }
+    }
+
+
+    //Scene functions start here
+    public void Scene1()
+    {
+        
+        sceneChanger.LoadScene(phaseNames[1]);
+        Scene2();
+    }
+
+    public void Scene2()
+    {
+        sceneChanger.LoadScene(phaseNames[2]);
+        Scene3();
+    }
+
+    public void Scene3()
+    {
+        sceneChanger.LoadScene(phaseNames[3]);
+        Scene4();
+    }
+
+    public void Scene4()
+    {
+        sceneChanger.LoadScene(phaseNames[4]);
+        Scene5();
+    }
+
+    public void Scene5()
+    {
+        sceneChanger.LoadScene(phaseNames[5]);
+        Scene6();
+    }
+
+    public void Scene6()
+    {
+        sceneChanger.LoadScene(phaseNames[6]);
+        Scene7();
+    }
+
+    public void Scene7()
+    {
+        sceneChanger.LoadScene(phaseNames[2]);
+        Scene3();
     }
 
     /*
