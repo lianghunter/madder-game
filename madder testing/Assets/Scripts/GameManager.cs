@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         end
     }
 
-    public Scenes scenes = Scenes.start;
+    public Scenes currentScene;
 
     public SceneChanger sceneChanger = new SceneChanger();
 
@@ -40,11 +40,59 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerJoins = new PlayerJoin[0];
+        currentScene = Scenes.start;
         sceneChanger.LoadScene(phaseNames[0]);
     }
 
     void Update()
     {
+
+        //View the current state and perform logic based on state
+        switch (currentScene)
+        {
+            case Scenes.start:
+                if (/*playerJoins.Length >= 3 && */Input.GetKeyDown(KeyCode.X))
+                {
+                    Scene2();
+                }
+                break;
+            case Scenes.instruct:
+                if (Input.GetKeyDown(KeyCode.X))
+                {
+                    Scene3();
+                }
+                break;
+            case Scenes.choose:
+                if (Input.GetKeyDown(KeyCode.X))
+                {
+                    Scene4();
+                }
+                break;
+            case Scenes.pitch:
+                if (Input.GetKeyDown(KeyCode.X))
+                {
+                    Scene5();
+                }
+                break;
+            case Scenes.vote:
+                if (Input.GetKeyDown(KeyCode.X))
+                {
+                    Scene6();
+                }
+                break;
+            case Scenes.board:
+                if (Input.GetKeyDown(KeyCode.X))
+                {
+                    Scene7();
+                }
+                break;
+            case Scenes.end:
+                if (Input.GetKeyDown(KeyCode.X))
+                {
+                    Scene3();
+                }
+                break;
+        }
 
 
         // Testing Madder functions
@@ -257,48 +305,47 @@ public class GameManager : MonoBehaviour
     }
 
 
-    //Scene functions start here
+    //Scene update functions start here
     public void Scene1()
     {
-        
+        currentScene = Scenes.instruct;
         sceneChanger.LoadScene(phaseNames[1]);
-        Scene2();
     }
 
     public void Scene2()
     {
+        currentScene = Scenes.choose;
         sceneChanger.LoadScene(phaseNames[2]);
-        Scene3();
     }
 
     public void Scene3()
     {
+        currentScene = Scenes.pitch;
         sceneChanger.LoadScene(phaseNames[3]);
-        Scene4();
     }
 
     public void Scene4()
     {
+        currentScene = Scenes.vote;
         sceneChanger.LoadScene(phaseNames[4]);
-        Scene5();
     }
 
     public void Scene5()
     {
+        currentScene = Scenes.board;
         sceneChanger.LoadScene(phaseNames[5]);
-        Scene6();
     }
 
     public void Scene6()
     {
+        currentScene = Scenes.end;
         sceneChanger.LoadScene(phaseNames[6]);
-        Scene7();
     }
 
     public void Scene7()
     {
+        currentScene = Scenes.choose;
         sceneChanger.LoadScene(phaseNames[2]);
-        Scene3();
     }
 
     /*
