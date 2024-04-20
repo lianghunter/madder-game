@@ -1,0 +1,4 @@
+repository "madder testing@Madder_Testing_Team@cloud"
+  path "/"
+    br "/main"
+    co "/main"
