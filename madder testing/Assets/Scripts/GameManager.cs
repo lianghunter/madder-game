@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.InteropServices;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public Canvas canvas;
     public GameObject nameObject;
     private PlayerJoin[] playerJoins;
+    public TMP_Text tmp;
+    public string code;
     public string[] phaseNames = new string[7] 
     {"StartScene", "InstructScene", "WordChooseScene", "PitchScene", "VotingScene", "LeaderBoardScene", "EndGameScene"};
 
@@ -26,6 +29,8 @@ public class GameManager : MonoBehaviour
 
     public SceneChanger sceneChanger = new SceneChanger();
 
+    //public ModifyText textMod = new ModifyText();
+
     // Madder functions that you may call
     // These functions should be conditionally called based on if this is inside a WebGL build, not the editor
     [DllImport("__Internal")]
@@ -42,6 +47,9 @@ public class GameManager : MonoBehaviour
         playerJoins = new PlayerJoin[0];
         currentScene = Scenes.start;
         DontDestroyOnLoad(gameObject);
+        RoomCode("1234");
+        tmp.text = code;
+        int i = 0;
         //sceneChanger.LoadScene(phaseNames[0]);
     }
 
@@ -187,6 +195,7 @@ public class GameManager : MonoBehaviour
     */
     public void RoomCode(string roomCode) 
     {
+        code = roomCode; 
         // TODO: Any of the following code may be modified or deleted
         Debug.Log("Room Code: " + roomCode);
     }
