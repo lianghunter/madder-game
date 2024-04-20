@@ -41,7 +41,8 @@ public class GameManager : MonoBehaviour
     {
         playerJoins = new PlayerJoin[0];
         currentScene = Scenes.start;
-        sceneChanger.LoadScene(phaseNames[0]);
+        DontDestroyOnLoad(gameObject);
+        //sceneChanger.LoadScene(phaseNames[0]);
     }
 
     void Update()
@@ -308,44 +309,50 @@ public class GameManager : MonoBehaviour
     //Scene update functions start here
     public void Scene1()
     {
-        currentScene = Scenes.instruct;
-        sceneChanger.LoadScene(phaseNames[1]);
+        currentScene = Scenes.start;
+        sceneChanger.LoadScene(phaseNames[0]);
     }
 
     public void Scene2()
     {
-        currentScene = Scenes.choose;
-        sceneChanger.LoadScene(phaseNames[2]);
+        sceneChanger.LoadScene(phaseNames[1]);
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        this.currentScene = Scenes.instruct;
     }
 
     public void Scene3()
     {
-        currentScene = Scenes.pitch;
-        sceneChanger.LoadScene(phaseNames[3]);
+        sceneChanger.LoadScene(phaseNames[2]);
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        this.currentScene = Scenes.choose;
     }
 
     public void Scene4()
     {
-        currentScene = Scenes.vote;
-        sceneChanger.LoadScene(phaseNames[4]);
+        sceneChanger.LoadScene(phaseNames[3]);
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        this.currentScene = Scenes.pitch;
     }
 
     public void Scene5()
     {
-        currentScene = Scenes.board;
-        sceneChanger.LoadScene(phaseNames[5]);
+        sceneChanger.LoadScene(phaseNames[4]);
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        currentScene = Scenes.vote;
     }
 
     public void Scene6()
     {
-        currentScene = Scenes.end;
-        sceneChanger.LoadScene(phaseNames[6]);
+        sceneChanger.LoadScene(phaseNames[5]);
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        currentScene = Scenes.board;
     }
 
     public void Scene7()
     {
-        currentScene = Scenes.choose;
-        sceneChanger.LoadScene(phaseNames[2]);
+        sceneChanger.LoadScene(phaseNames[6]);
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        currentScene = Scenes.end;
     }
 
     /*

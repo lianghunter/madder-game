@@ -225,6 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 669816256}
   - component: {fileID: 669816255}
+  - component: {fileID: 669816257}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -246,6 +247,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1980408047}
   nameObject: {fileID: 4597227995403238080, guid: 55fc0ca3f73284dc788dd1a9ce4be113, type: 3}
+  phaseNames:
+  - StartScene
+  - InstructScene
+  - WordChooseScene
+  - PitchScene
+  - VotingScene
+  - LeaderBoardScene
+  - EndGameScene
+  currentScene: 0
+  sceneChanger: {fileID: 669816257}
 --- !u!4 &669816256
 Transform:
   m_ObjectHideFlags: 0
@@ -261,6 +272,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &669816257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669816254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f141bd561bd7b1f4881582050993c7f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1980408046
 GameObject:
   m_ObjectHideFlags: 0
